@@ -79,9 +79,9 @@ Requires a `.env` file with API keys (OpenAI, Anthropic, Google, HuggingFace, et
 
 ## 当我说"总结"时
 
-把当前对话中所有已讲解的内容，整理成结构化的 markdown 笔记文件：
+把当前对话中所有已讲解的内容，整理成结构化的 markdown 笔记文件。每讨论完一天的内容就写入一个新的 md 文件，文件名带序号，方便按顺序查阅。
 
-- **文件名格式**：`week{X}-{简短英文主题}.md`（如 `week1-transformers-and-emergence.md`）
+- **文件名格式**：`week{X}-day{N}-{简短英文主题}.md`（如 `week2-day1-frontier-model-apis.md`）
 - **文件结构**：
 
 ```Markdown
@@ -108,7 +108,12 @@ Requires a `.env` file with API keys (OpenAI, Anthropic, Google, HuggingFace, et
 ```
 
 - 内容来源于对话中的所有讲解（包括追问后展开的部分），不要遗漏
-- 将文件保存到当前工作目录
+- 将文件保存到对应的 `week{N}/` 文件夹，不要放项目根目录
+- 笔记文件中的论点标题按数字顺序编号（### 1. xxx、### 2. xxx）
+
+## 当我说"出考题"时
+
+在 `week{N}/quiz/` 文件夹下创建测验文件，覆盖当前学习内容。题目分类：概念理解、代码实操、判断题等。我答完后在单独的 review 文件里给出批改、评分和参考答案。
 
 ## Conventions
 
@@ -118,3 +123,5 @@ Requires a `.env` file with API keys (OpenAI, Anthropic, Google, HuggingFace, et
 - 如果 transcript 里有明显口误（如"a genetic AI"→"agentic AI"），直接用正确术语
 - 如果课程里某个解释不够准确或有遗漏，可以补充，但要标明是你的补充
 - **对于不确定的事实（如模型参数量、发布日期、具体性能数据等），先搜索验证再回答，不要凭记忆猜测**
+- 如果我追问某个点，深入展开那个点，风格和论点形式一致
+- 当我说"更新"某个笔记文件时，把对话中新讨论的内容追加进去（新论点、新术语），不要覆盖已有内容
